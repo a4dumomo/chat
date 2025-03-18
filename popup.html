@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <img src="icon.png" class="extension-icon" alt="Extension Icon">
+  <div class="hover-nav">
+    <button class="hover-nav-button" data-url="https://chat.deepseek.com/">Deepseek</button>
+    <button class="hover-nav-button" data-url="https://kimi.moonshot.cn/">Kimi</button>
+    <button class="hover-nav-button" data-url="https://tongyi.aliyun.com/">通义</button>
+    <button class="hover-nav-button" data-url="https://yiyan.baidu.com/">文心一言</button>
+  </div>
+  <div id="time-display"></div>
+  <div id="nav-bar">
+    <button id="deepseek-nav" class="nav-button active">Deepseek</button>
+    <button id="kimi-nav" class="nav-button">Kimi</button>
+    <button id="tongyi-nav" class="nav-button">通义</button>
+    <button id="yiyan-nav" class="nav-button">文心一言</button>
+  </div>
+  <div id="deepseek-container" class="chat-container active">
+    <iframe id="deepseek-frame" src="https://chat.deepseek.com/"></iframe>
+    <div id="error-message">
+      <h3>连接失败</h3>
+      <p>无法加载 Deepseek Chat，请检查网络连接或稍后重试。</p>
+      <button id="retry-button">重试</button>
+    </div>
+  </div>
+  <div id="kimi-container" class="chat-container">
+    <iframe id="kimi-frame"></iframe>
+    <div id="kimi-error-message" class="error-message">
+      <h3>连接失败</h3>
+      <p>无法加载 Kimi Chat，请检查网络连接或稍后重试。</p>
+      <button id="kimi-retry-button">重试</button>
+    </div>
+  </div>
+  <div id="tongyi-container" class="chat-container">
+    <iframe id="tongyi-frame"></iframe>
+    <div id="tongyi-error-message" class="error-message">
+      <h3>连接失败</h3>
+      <p>无法加载通义，请检查网络连接或稍后重试。</p>
+      <button id="tongyi-retry-button">重试</button>
+    </div>
+  </div>
+  <div id="yiyan-container" class="chat-container">
+    <iframe id="yiyan-frame"></iframe>
+    <div id="yiyan-error-message" class="error-message">
+      <h3>连接失败</h3>
+      <p>无法加载文心一言，请检查网络连接或稍后重试。</p>
+      <button id="yiyan-retry-button">重试</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "MDeepChat",
+  "version": "1.0",
+  "description": "在浏览器右侧内置deepseek.com网站，并在顶部显示系统时间",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "declarativeNetRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://chat.deepseek.com/*",
+    "https://kimi.moonshot.cn/*",
+    "https://tongyi.aliyun.com/*",
+    "https://yiyan.baidu.com/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; style-src 'self'; frame-src https://chat.deepseek.com/ https://kimi.moonshot.cn/ https://tongyi.aliyun.com/ https://yiyan.baidu.com/; connect-src https://chat.deepseek.com/ https://kimi.moonshot.cn/ https://tongyi.aliyun.com/ https://yiyan.baidu.com/"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+0",
+        "mac": "MacCtrl+0"
+      },
+      "description": "打开MDeepChat"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }],
+  "web_accessible_resources": [{
+    "resources": ["icon.png"],
+    "matches": ["<all_urls>"]
+  }]
+}
