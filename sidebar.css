@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.sidebar-container {
+  width: 350px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #dee2e6;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+#time-display {
+  background-color: #f8f9fa;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+#nav-bar {
+  display: flex;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  padding: 8px;
+}
+
+.nav-button {
+  flex: 1;
+  padding: 8px;
+  margin: 0 4px;
+  border: 1px solid #dee2e6;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.nav-button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+.chat-container {
+  display: none;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.chat-container.active {
+  display: block;
+}
+
+#deepseek-frame, #kimi-frame, #tongyi-frame, #yiyan-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.error-message {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#retry-button, #kimi-retry-button, #tongyi-retry-button, #yiyan-retry-button {
+  margin-top: 15px;
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#retry-button:hover, #kimi-retry-button:hover, #tongyi-retry-button:hover, #yiyan-retry-button:hover {
+  background-color: #0056b3;
+}
+
+.floating-ball {
+  position: absolute;
+  right: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background-color: #87CEEB;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.floating-ball:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+.floating-ball-text {
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.2;
+}

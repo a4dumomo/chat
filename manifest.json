@@ -1,31 +1,27 @@
 {
   "manifest_version": 3,
-  "name": "MDeepChat",
+  "name": "AI Chat Assistant",
   "version": "1.0",
-  "description": "在浏览器右侧内置deepseek.com网站，并在顶部显示系统时间",
+  "description": "Quick access to AI chat services",
   "permissions": [
     "activeTab",
+    "storage",
     "scripting",
     "declarativeNetRequest",
-    "storage"
+    "tabs"
   ],
   "host_permissions": [
     "https://chat.deepseek.com/*",
     "https://kimi.moonshot.cn/*",
     "https://tongyi.aliyun.com/*",
-    "https://yiyan.baidu.com/*"
+    "https://yiyan.baidu.com/*",
+    "<all_urls>"
   ],
-  "content_security_policy": {
-    "extension_pages": "default-src 'self'; style-src 'self'; frame-src https://chat.deepseek.com/ https://kimi.moonshot.cn/ https://tongyi.aliyun.com/ https://yiyan.baidu.com/; connect-src https://chat.deepseek.com/ https://kimi.moonshot.cn/ https://tongyi.aliyun.com/ https://yiyan.baidu.com/"
+  "background": {
+    "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icon.png",
-      "32": "icon.png",
-      "48": "icon.png",
-      "128": "icon.png"
-    }
+    "default_icon": "icon.png"
   },
   "commands": {
     "_execute_action": {
@@ -33,18 +29,16 @@
         "default": "Ctrl+0",
         "mac": "MacCtrl+0"
       },
-      "description": "打开MDeepChat"
+      "description": "激活插件"
     }
-  },
-  "background": {
-    "service_worker": "background.js"
   },
   "content_scripts": [{
     "matches": ["<all_urls>"],
-    "js": ["content.js"]
+    "js": ["content.js"],
+    "run_at": "document_end"
   }],
   "web_accessible_resources": [{
-    "resources": ["icon.png"],
+    "resources": ["sidebar.html"],
     "matches": ["<all_urls>"]
   }]
 }
